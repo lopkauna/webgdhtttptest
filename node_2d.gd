@@ -48,6 +48,7 @@ func _ready() -> void:
 	searchhttp.request_completed.connect(_response_find)
 	updatelisthttp.request_completed.connect(_response_update)
 	getcontenthttp.request_completed.connect(_response_content)
+	get_allprojzip()
 	#delreqshttp.request_completed.connect(_response_delete)
 	#http.connect("request_completed", self, "response")
 	
@@ -255,6 +256,13 @@ func _on_button_pressed() -> void:
 	])
 	#updatelisthttp.download_file = "prd.zip"
 	#updatelisthttp.request("https://api.github.com/repos/lopkauna/brnrecp/contents/")
+	updatelisthttp.download_file = "user://main.zip"
+	updatelisthttp.request("https://github.com/lopkauna/brnrecp/archive/refs/heads/main.zip")
+		#"https://api.github.com/repos/lopkauna/brnrecp/contents/",headers)
+	processing = true
+	curproc.append(updatelisthttp)
+
+func get_allprojzip():
 	updatelisthttp.download_file = "user://main.zip"
 	updatelisthttp.request("https://github.com/lopkauna/brnrecp/archive/refs/heads/main.zip")
 		#"https://api.github.com/repos/lopkauna/brnrecp/contents/",headers)
