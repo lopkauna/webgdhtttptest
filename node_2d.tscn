@@ -1,0 +1,490 @@
+[gd_scene format=3 uid="uid://dgu24c4of702t"]
+
+[ext_resource type="Script" uid="uid://dkpifqvt3tnc5" path="res://node_2d.gd" id="1_wtcfe"]
+[ext_resource type="Script" uid="uid://das41m1cpjxb3" path="res://main_menu.gd" id="2_0e48y"]
+[ext_resource type="Script" uid="uid://blc42ne5x7aua" path="res://dish_list.gd" id="3_epypp"]
+[ext_resource type="Script" uid="uid://nvmpeqpw75nq" path="res://dish_card.gd" id="4_0hol4"]
+[ext_resource type="Script" uid="uid://bfugmfojswq8y" path="res://phorocontainer.gd" id="5_q6r6c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4v7s"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_winbs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yf5fn"]
+bg_color = Color(1, 1, 1, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_57qmd"]
+
+[node name="Node2D" type="Node" unique_id=1643479108]
+script = ExtResource("1_wtcfe")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=981369701]
+visible = false
+
+[node name="Control" type="MarginContainer" parent="CanvasLayer" unique_id=976052244]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control" unique_id=607010122]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/Control/HBoxContainer" unique_id=695809191]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextEdit" type="TextEdit" parent="CanvasLayer/Control/HBoxContainer" unique_id=1125685349]
+custom_minimum_size = Vector2(0, 224)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+placeholder_text = "текст внутри файла"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/HBoxContainer" unique_id=1874858938]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LineEdit" type="LineEdit" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer" unique_id=617473831]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+placeholder_text = "название файла"
+
+[node name="Button" type="Button" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer" unique_id=641698722]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+size_flags_vertical = 0
+text = "Обновить"
+
+[node name="Button2" type="Button" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer" unique_id=1763014820]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+size_flags_vertical = 0
+text = "Сохранить"
+
+[node name="Button4" type="Button" parent="CanvasLayer/Control" unique_id=684900652]
+custom_minimum_size = Vector2(240, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "фото дать"
+
+[node name="Label" type="Label" parent="CanvasLayer/Control" unique_id=779798093]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Загрузка..."
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=1902385909]
+custom_minimum_size = Vector2(320, 320)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -160.0
+offset_right = 160.0
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 5
+stretch_mode = 5
+
+[node name="MainMenu" type="CanvasLayer" parent="." unique_id=1739503285]
+script = ExtResource("2_0e48y")
+
+[node name="MarginContainer" type="MarginContainer" parent="MainMenu" unique_id=372802166]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/MarginContainer" unique_id=1506988035]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Button" type="Button" parent="MainMenu/MarginContainer/VBoxContainer" unique_id=643525628]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Открыть Меню"
+
+[node name="Button" type="Button" parent="MainMenu/MarginContainer" unique_id=2071008304]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Обновить Меню"
+
+[node name="Label" type="Label" parent="MainMenu/MarginContainer" unique_id=156335894]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Дата последнего обновления меню: 07,10,2026"
+
+[node name="DishList" type="CanvasLayer" parent="." unique_id=1908311011]
+visible = false
+script = ExtResource("3_epypp")
+
+[node name="MarginContainer" type="MarginContainer" parent="DishList" unique_id=2002973539]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DishList/MarginContainer" unique_id=1532917351]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DishList/MarginContainer/VBoxContainer" unique_id=912583812]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="DishList/MarginContainer/VBoxContainer/HBoxContainer" unique_id=646010488]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Назад"
+
+[node name="MenuButton" type="OptionButton" parent="DishList/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1360114723]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 36
+selected = 0
+item_count = 1
+popup/item_0/text = "Выбрать категорию"
+popup/item_0/id = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="DishList/MarginContainer/VBoxContainer" unique_id=1244950844]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+
+[node name="LineEdit" type="LineEdit" parent="DishList/MarginContainer/VBoxContainer/MarginContainer" unique_id=1575664562]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+placeholder_text = "🔍Поиск"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="DishList/MarginContainer/VBoxContainer" unique_id=1252583225]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="DishList" type="VBoxContainer" parent="DishList/MarginContainer/VBoxContainer/ScrollContainer" unique_id=1764292266]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button2" type="Button" parent="DishList/MarginContainer/VBoxContainer/ScrollContainer/DishList" unique_id=1903366280]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Пример"
+
+[node name="DishCard" type="CanvasLayer" parent="." unique_id=1879538742]
+visible = false
+script = ExtResource("4_0hol4")
+
+[node name="MarginContainer" type="MarginContainer" parent="DishCard" unique_id=555032673]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DishCard/MarginContainer" unique_id=55630886]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DishCard/MarginContainer/VBoxContainer" unique_id=1012623450]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="DishCard/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1299661313]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="DishCard/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer" unique_id=922734244]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 36
+text = "Назад"
+
+[node name="DishCategory" type="OptionButton" parent="DishCard/MarginContainer/VBoxContainer/HBoxContainer" unique_id=746644366]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 26
+
+[node name="DishName" type="TextEdit" parent="DishCard/MarginContainer/VBoxContainer" unique_id=813514616]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 36
+placeholder_text = "Название блюда"
+wrap_mode = 1
+scroll_fit_content_height = true
+scroll_fit_content_width = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="DishCard/MarginContainer/VBoxContainer" unique_id=147097687]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DishCard/MarginContainer/VBoxContainer/ScrollContainer" unique_id=1234283420]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="DishInfo" type="VBoxContainer" parent="DishCard/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=179065443]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_constants/separation = 0
+
+[node name="DishIngridientsTable" type="VBoxContainer" parent="DishCard/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/DishInfo" unique_id=741128649]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="DishCard/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/DishInfo/DishIngridientsTable" unique_id=867128353]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_right = 4
+
+[node name="PanelContainer" type="PanelContainer" parent="DishCard/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/DishInfo/DishIngridientsTable/MarginContainer" unique_id=1217674439]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_g4v7s")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DishCard/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/DishInfo/DishIngridientsTable/MarginContainer" unique_id=1231119474]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="DishCard/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/DishInfo/DishIngridientsTable/MarginContainer/VBoxContainer" unique_id=1792109699]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Перечень сырья и рецептура"
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="DishCard/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/DishInfo/DishIngridientsTable/MarginContainer/VBoxContainer" unique_id=1046489453]
+layout_mode = 2
+theme = SubResource("Theme_winbs")
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 6
+
+[node name="PanelContainer" type="PanelContainer" parent="DishCard/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/DishInfo/DishIngridientsTable/MarginContainer/VBoxContainer/GridContainer" unique_id=1676164512]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yf5fn")
+
+[node name="Npp" type="Label" parent="DishCard/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/DishInfo/DishIngridientsTable/MarginContainer/VBoxContainer/GridContainer/PanelContainer" unique_id=474728111]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 24
+text = " №п/п "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PanelContainer2" type="PanelContainer" parent="DishCard/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/DishInfo/DishIngridientsTable/MarginContainer/VBoxContainer/GridContainer" unique_id=2141347196]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_yf5fn")
+
+[node name="Frn" type="Label" parent="DishCard/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/DishInfo/DishIngridientsTable/MarginContainer/VBoxContainer/GridContainer/PanelContainer2" unique_id=324111339]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 24
+text = " Сырье "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PanelContainer3" type="PanelContainer" parent="DishCard/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/DishInfo/DishIngridientsTable/MarginContainer/VBoxContainer/GridContainer" unique_id=1193699955]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yf5fn")
+
+[node name="BrutoMass" type="Label" parent="DishCard/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/DishInfo/DishIngridientsTable/MarginContainer/VBoxContainer/GridContainer/PanelContainer3" unique_id=2105567973]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 24
+text = " Масса 
+брутто"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="DishCard/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/DishInfo/DishIngridientsTable/MarginContainer/VBoxContainer/GridContainer/PanelContainer3" unique_id=13687191]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+alignment = 1
+editable = false
+flat = true
+
+[node name="PanelContainer4" type="PanelContainer" parent="DishCard/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/DishInfo/DishIngridientsTable/MarginContainer/VBoxContainer/GridContainer" unique_id=728054462]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yf5fn")
+
+[node name="NetoMass" type="Label" parent="DishCard/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/DishInfo/DishIngridientsTable/MarginContainer/VBoxContainer/GridContainer/PanelContainer4" unique_id=1113971099]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 24
+text = " Масса 
+нетто"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="DishCard/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/DishInfo/DishIngridientsTable/MarginContainer/VBoxContainer/GridContainer/PanelContainer4" unique_id=601883037]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+alignment = 1
+editable = false
+flat = true
+
+[node name="PanelContainer5" type="PanelContainer" parent="DishCard/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/DishInfo/DishIngridientsTable/MarginContainer/VBoxContainer/GridContainer" unique_id=12496377]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yf5fn")
+
+[node name="FinalMass" type="Label" parent="DishCard/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/DishInfo/DishIngridientsTable/MarginContainer/VBoxContainer/GridContainer/PanelContainer5" unique_id=1200500513]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 24
+text = "Масса в 
+ готовом 
+виде"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="DishCard/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/DishInfo/DishIngridientsTable/MarginContainer/VBoxContainer/GridContainer/PanelContainer5" unique_id=1323001032]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+alignment = 1
+editable = false
+flat = true
+
+[node name="PanelContainer6" type="PanelContainer" parent="DishCard/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/DishInfo/DishIngridientsTable/MarginContainer/VBoxContainer/GridContainer" unique_id=1245250376]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_57qmd")
+
+[node name="RemoveIngridient" type="Label" parent="DishCard/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/DishInfo/DishIngridientsTable/MarginContainer/VBoxContainer/GridContainer/PanelContainer6" unique_id=528673091]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "        "
+
+[node name="PanelContainer" type="PanelContainer" parent="DishCard/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/DishInfo/DishIngridientsTable/MarginContainer/VBoxContainer" unique_id=175416188]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_yf5fn")
+
+[node name="ButtonAddRow" type="Button" parent="DishCard/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/DishInfo/DishIngridientsTable/MarginContainer/VBoxContainer/PanelContainer" unique_id=1625153592]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "+Добавить ингридиент"
+
+[node name="MarginContainer2" type="MarginContainer" parent="DishCard/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/DishInfo/DishIngridientsTable" unique_id=880838888]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_right = 4
+
+[node name="DishRecepie" type="TextEdit" parent="DishCard/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/DishInfo/DishIngridientsTable/MarginContainer2" unique_id=242310716]
+custom_minimum_size = Vector2(64, 128)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+placeholder_text = "Порядок приготовления блюда"
+
+[node name="MarginContainer2" type="MarginContainer" parent="DishCard/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=173249245]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_right = 4
+
+[node name="MarginContainer" type="HBoxContainer" parent="DishCard/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/MarginContainer2" unique_id=683326566]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("5_q6r6c")
+
+[node name="ScrollContainer2" type="ScrollContainer" parent="DishCard/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/MarginContainer2/MarginContainer" unique_id=642919935]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+vertical_scroll_mode = 0
+
+[node name="Photos" type="HBoxContainer" parent="DishCard/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/MarginContainer2/MarginContainer/ScrollContainer2" unique_id=1659450967]
+custom_minimum_size = Vector2(0, 240)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Button" type="Button" parent="DishCard/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/MarginContainer2/MarginContainer" unique_id=218766513]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 24
+text = "Добавить
+Фото"
+
+[node name="FileDialog" type="FileDialog" parent="DishCard/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/MarginContainer2/MarginContainer" unique_id=21156301]
+oversampling_override = 1.0
+title = "Open File(s)"
+file_mode = 1
+access = 2
+filters = PackedStringArray("*.png", "*.jpg", "*.jpeg")
+use_native_dialog = true
+
+[node name="DelDishButton" type="Button" parent="DishCard/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=431814765]
+layout_mode = 2
+text = "Удалить Блюдо"
+
+[node name="TextEdit" type="TextEdit" parent="DishCard/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=2093556361]
+visible = false
+layout_mode = 2
+editable = false
+wrap_mode = 1
+scroll_fit_content_height = true
+
+[node name="FileDialog" type="FileDialog" parent="." unique_id=2118199034]
+oversampling_override = 1.0
+title = "Open File(s)"
+file_mode = 1
+access = 2
+filters = PackedStringArray("*.png", "*.jpg", "*.jpeg")
+use_native_dialog = true
+
+[connection signal="text_changed" from="CanvasLayer/Control/HBoxContainer/TextEdit" to="." method="_on_text_edit_text_changed"]
+[connection signal="text_changed" from="CanvasLayer/Control/HBoxContainer/VBoxContainer/LineEdit" to="." method="_on_line_edit_text_changed"]
+[connection signal="pressed" from="CanvasLayer/Control/HBoxContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/HBoxContainer/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="MainMenu/MarginContainer/VBoxContainer/Button" to="MainMenu" method="_on_button_pressed"]
+[connection signal="visibility_changed" from="DishList" to="DishList" method="_on_visibility_changed"]
+[connection signal="pressed" from="DishList/MarginContainer/VBoxContainer/HBoxContainer/Button" to="DishList" method="_on_button_pressed"]
+[connection signal="pressed" from="DishList/MarginContainer/VBoxContainer/ScrollContainer/DishList/Button2" to="DishList" method="_on_button_2_pressed"]
+[connection signal="visibility_changed" from="DishCard" to="DishCard" method="_on_visibility_changed"]
+[connection signal="pressed" from="DishCard/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/Button" to="DishCard" method="_on_button_pressed"]
+[connection signal="item_selected" from="DishCard/MarginContainer/VBoxContainer/HBoxContainer/DishCategory" to="DishCard" method="_on_dish_category_item_selected"]
+[connection signal="text_changed" from="DishCard/MarginContainer/VBoxContainer/DishName" to="DishCard" method="_on_dish_name_text_changed"]
+[connection signal="pressed" from="DishCard/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/DishInfo/DishIngridientsTable/MarginContainer/VBoxContainer/PanelContainer/ButtonAddRow" to="DishCard" method="_on_button_add_row_pressed"]
+[connection signal="text_changed" from="DishCard/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/DishInfo/DishIngridientsTable/MarginContainer2/DishRecepie" to="DishCard" method="_on_dish_recepie_text_changed"]
+[connection signal="pressed" from="DishCard/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/MarginContainer2/MarginContainer/Button" to="DishCard/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/MarginContainer2/MarginContainer" method="_on_button_pressed"]
+[connection signal="files_selected" from="DishCard/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/MarginContainer2/MarginContainer/FileDialog" to="DishCard/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/MarginContainer2/MarginContainer" method="_on_file_dialog_files_selected"]
+[connection signal="pressed" from="DishCard/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/DelDishButton" to="DishCard" method="_on_del_dish_button_pressed"]
+[connection signal="file_selected" from="FileDialog" to="." method="_on_file_dialog_file_selected"]
+[connection signal="files_selected" from="FileDialog" to="." method="_on_file_dialog_files_selected"]
