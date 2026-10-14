@@ -48,6 +48,7 @@ func _ready() -> void:
 	searchhttp.request_completed.connect(_response_find)
 	updatelisthttp.request_completed.connect(_response_update)
 	getcontenthttp.request_completed.connect(_response_content)
+	$MainMenu/MarginContainer/Label.text = "loaded!"
 	$FileDialog2.popup()
 	#get_allprojzip()
 	#delreqshttp.request_completed.connect(_response_delete)
