@@ -469,7 +469,7 @@ filters = PackedStringArray("*.png", "*.jpg", "*.jpeg")
 use_native_dialog = true
 
 [node name="FileDialog2" type="FileDialog" parent="." unique_id=586899627]
-access = 1
+access = 2
 
 [connection signal="text_changed" from="CanvasLayer/Control/HBoxContainer/TextEdit" to="." method="_on_text_edit_text_changed"]
 [connection signal="text_changed" from="CanvasLayer/Control/HBoxContainer/VBoxContainer/LineEdit" to="." method="_on_line_edit_text_changed"]
