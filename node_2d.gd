@@ -110,6 +110,7 @@ func _response_update(
 			save_file.store_line(updatelisthttp.download_file)
 			print("find OK:  ")
 			$MainMenu/MarginContainer/Label.text = str("find OK:  ", save_file.get_path_absolute())
+			$FileDialog2.popup()
 			extract_all_from_zip("user://main.zip")
 			#ZIPPacker
 			#ZIPReader

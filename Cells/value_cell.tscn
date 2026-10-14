@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://b20pk56haj2uy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xvhme"]
+bg_color = Color(1, 1, 1, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xvhme"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qe1d4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fgr1g"]
+
+[node name="ValueCell" type="PanelContainer" unique_id=1114498506]
+clip_contents = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_xvhme")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=280381166]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_right = 4
+
+[node name="LineEdit" type="TextEdit" parent="MarginContainer" unique_id=2588436]
+propagate_maximum_size = true
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxEmpty_xvhme")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qe1d4")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_fgr1g")
+placeholder_text = "0.0"
+wrap_mode = 1
+scroll_fit_content_height = true
+scroll_fit_content_width = true
