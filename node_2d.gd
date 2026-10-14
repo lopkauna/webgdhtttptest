@@ -109,6 +109,7 @@ func _response_update(
 			var save_file = FileAccess.open("user://savedata.zip", FileAccess.WRITE)
 			save_file.store_line(updatelisthttp.download_file)
 			print("find OK:  ")
+			$MainMenu/MarginContainer/Label.text = str("find OK:  ", save_file.get_path_absolute())
 			extract_all_from_zip("user://main.zip")
 			#ZIPPacker
 			#ZIPReader
@@ -128,6 +129,7 @@ func _response_update(
 				##	print(JSON.parse_string(body.get_string_from_utf8())[itr]["content"]["name"])
 		
 		else:
+			$MainMenu/MarginContainer/Label.text = str("ERROR (", response_code, "): ", result)
 			print("ERROR (", response_code, "): ", result)
 
 func _btnmpressed(nm:String):
