@@ -48,7 +48,8 @@ func _ready() -> void:
 	searchhttp.request_completed.connect(_response_find)
 	updatelisthttp.request_completed.connect(_response_update)
 	getcontenthttp.request_completed.connect(_response_content)
-	get_allprojzip()
+	$FileDialog2.popup()
+	#get_allprojzip()
 	#delreqshttp.request_completed.connect(_response_delete)
 	#http.connect("request_completed", self, "response")
 	
@@ -110,7 +111,7 @@ func _response_update(
 			save_file.store_line(updatelisthttp.download_file)
 			print("find OK:  ")
 			$MainMenu/MarginContainer/Label.text = str("find OK:  ", save_file.get_path_absolute())
-			$FileDialog2.popup()
+			
 			extract_all_from_zip("user://main.zip")
 			#ZIPPacker
 			#ZIPReader
